@@ -1,0 +1,39 @@
+﻿@using TaskManager.Models
+@model List<Personel>
+@{
+    ViewData["Title"] = "Personel Listele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Personel No</th>
+                <th scope="col">Personel İsim</th>
+                <th scope="col">Personel Departman</th>
+                <th scope="col">İşe Başlama Tarihi</th>
+                <th scope="col">Telefon Numarası</th>
+                <th scope="col">Mail Adresi</th>
+                <th scope="col">Personel Sil</th>
+                <th scope="col">Personel Güncelle</th>
+            </tr>
+        </thead>
+
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td> @x.personelId</td>
+                <td> @x.personelAd @x.personelSoyad</td>
+                <td> @x.depart.departmanAd</td>
+                <td> @x.iseBaslamaTarihi.ToString("dd/MM/yyyy")</td>
+                <td>@String.Format("{0:+90 (###) ### ## ##}", Decimal.Parse(x.telNo))</td>
+                <td> @x.mailAdres</td>
+                
+                <td><button type="button" class="btn btn-danger">Sil</button></td>
+                <td><button type="button" class="btn btn-info">Güncelle</button></td>
+            </tr>
+        }
+
+    </table>
+</div>
+

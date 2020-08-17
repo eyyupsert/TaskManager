@@ -1,0 +1,47 @@
+﻿@using TaskManager.Models
+@model List<Gorev>
+@{
+    ViewData["Title"] = "GorevGoruntule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Görev No</th>
+                <th scope="col">Görev Sahibi</th>
+                <th scope="col">Görev Ad</th>
+                <th scope="col">Görev Güncelle</th>
+                <th scope="col">Görev Durum</th>
+                <th scope="col">Görev Detay </th>
+                <th scope="col">Son Teslim Tarihi </th>
+            </tr>
+        </thead>
+        @foreach (var x in Model)
+        {
+            var durum = x.gorevDurum;
+    <tr>
+        <td> @x.gorevId </td>
+        <td> @x.per.personelAd @x.per.personelSoyad </td>
+        <td> @x.gorevAd </td>
+        <td>
+            <button type="button" class="btn btn-danger">x</button>
+            <button type="button" class="btn btn-info">+</button>
+        </td>
+
+        @if (durum == false)
+        {
+            <td>Yapılmadı</td>
+        }
+        @if (durum == true)
+        {
+            <td>Yapıldı</td>
+        }
+        <td><button type="button" class="btn btn-info"><img src="~/photo/list.png" /></button></td>
+        <td> @x.gorevSonTeslimTarihi.ToString("dd/MM/yyyy")</td>
+    </tr>
+        }
+
+    </table>
+</div>

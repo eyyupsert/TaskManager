@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using TaskManager.Models;
 
@@ -22,7 +23,17 @@ namespace TaskManager.Controllers
         {
             return View();
         }
-
+        Context a = new Context();
+        public IActionResult GorevGoruntule()
+        {
+            var gorevDeger = a.gorevs.Include(g => g.per).ToList();
+            return View(gorevDeger);
+        }
+        public IActionResult GorevGuncelle()
+        {
+            return View();
+        }
+        
         public IActionResult Privacy()
         {
             return View();
