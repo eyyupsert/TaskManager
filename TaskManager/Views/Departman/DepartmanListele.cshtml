@@ -1,0 +1,25 @@
+﻿@model List<Departman>
+@{
+    ViewData["Title"] = "departmanListeleView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Departman Id</th>
+            <th scope="col">Departman Ad</th>
+        </tr>
+    </thead>
+
+    @foreach (var d in Model)
+    {
+<tr>
+    <td> @d.Id</td>
+    <td>@d.departmanAd </td>
+    <td><a href="/Departman/DepartmanSil/@d.Id" class="btn btn-danger"> Sil </a></td>
+    
+</tr>
+    }
+</table>
+<a href="/Departman/YeniDepartman" class="btn btn-info"> Departman Ekle </a>

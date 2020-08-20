@@ -16,5 +16,17 @@ namespace TaskManager.Controllers
             var degerler = c.personellers.Include(x => x.depart).ToList();
             return View(degerler);
         }
+        [HttpGet]
+        public IActionResult YeniPersonelEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult YeniPersonelEkle(Personel person)
+        {
+            c.personellers.Add(person);
+            c.SaveChanges();
+            return RedirectToAction("YeniPersonelEkle");
+        }
     }
 }

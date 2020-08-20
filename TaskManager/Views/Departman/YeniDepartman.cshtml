@@ -1,0 +1,15 @@
+﻿@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model TaskManager.Models.Departman
+@{
+    ViewData["Title"] = "YeniDepartman";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <h3>Yeni Departman Ekleme Sayfası</h3>
+    
+        <form asp-action="YeniDepartman">
+            <div class="form-group"></div>
+            <div i class="text-danger"></div>
+            <div class="form-group"> <input asp-for="departmanAd"> </div>
+            <input type="submit" value="Departman Ekle" class="btn btn-info" />
+        </form>
+    

@@ -1,0 +1,20 @@
+﻿@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model TaskManager.Models.Personel
+@{
+    ViewData["Title"] = "YeniPersonel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Yeni Personel Ekleme Sayfası</h3>
+
+<form asp-action="YeniPersonelEkle">
+    <div class="form-group"></div>
+    <div i class="text-danger"></div>
+    <div class="form-group"> <input asp-for="personelAd"> </div>
+    <div class="form-group"> <input asp-for="personelSoyad"> </div>
+    <div class="form-group"> <input asp-for="iseBaslamaTarihi"> </div>
+    <div class="form-group"> <input asp-for="telNo"> </div>
+    <div class="form-group"> <input asp-for="mailAdres"> </div>
+    <div class="form-group"> <input asp-for="mailAdres"> </div>
+    <input type="submit" value="Personel Ekle" class="btn btn-info" />
+</form>
+

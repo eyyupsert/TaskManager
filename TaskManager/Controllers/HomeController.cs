@@ -24,11 +24,7 @@ namespace TaskManager.Controllers
             return View();
         }
         Context a = new Context();
-        public IActionResult GorevGoruntule()
-        {
-            var gorevDeger = a.gorevs.Include(g => g.per).ToList();
-            return View(gorevDeger);
-        }
+        
         public IActionResult GorevGuncelle()
         {
             return View();
