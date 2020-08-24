@@ -10,7 +10,7 @@ using TaskManager.Models;
 namespace TaskManager.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200815142243_TaskManagerMG")]
+    [Migration("20200823184901_TaskManagerMG")]
     partial class TaskManagerMG
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

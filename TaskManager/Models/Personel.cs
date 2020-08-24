@@ -15,7 +15,8 @@ namespace TaskManager.Models
         public DateTime iseBaslamaTarihi { get; set; }
         public string telNo { get; set; }
         public string mailAdres { get; set; }
-        public Departman depart { get; set; }
+        public  Departman depart { get; set; }
+        
         public List<Gorev> gorevs { get; set; }
     }
 }
