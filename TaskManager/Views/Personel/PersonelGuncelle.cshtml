@@ -1,19 +1,20 @@
 ﻿@model TaskManager.Models.Personel
 @{
-    ViewData["Title"] = "YeniPersonel";
+    ViewData["Title"] = "PersonelGuncelle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h3>Yeni Personel Ekleme Sayfası</h3>
 
-<form asp-action="YeniPersonel">
+<h1>PersonelGuncelle</h1>
+
+<form asp-action="PersonelGuncelle" asp-controller="Personel" method="post">
     <div class="form-group"></div>
-    <div class="form-group"> Ad: <input asp-for="personelAd"> </div>
+    <div class="form-group"> ID: <input asp-for="personelId" readonly> </div>
+    <div class="form-group"> Ad: <input asp-for="personelAd" name="personelAd"> </div>
     <div class="form-group"> Soyad: <input asp-for="personelSoyad"> </div>
     <div class="form-group"> İşe Başlama Tarihi: <input asp-for="iseBaslamaTarihi" type="date"> </div>
     <div class="form-group"> Telefon Numarası: <input asp-for="telNo"> </div>
     <div class="form-group"> Mail Adresi: <input asp-for="mailAdres"> </div>
     <select asp-for="depart.Id" asp-items="@(new SelectList(@ViewBag.departmanDeger, "Id","departmanAd"))"></select>
     <br />
-    <input type="submit" value="Personel Ekle" class="btn btn-info" style="margin-top: 10px" />
+    <input type="submit" value="Personel Güncelle" class="btn btn-info" style="margin-top: 10px" />
 </form>
- 

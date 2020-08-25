@@ -30,8 +30,8 @@
                 <td>@String.Format("{0:+90 (###) ### ## ##}", Decimal.Parse(x.telNo))</td>
                 <td> @x.mailAdres</td>
                 
-                <td><button type="button" class="btn btn-danger">Sil</button></td>
-                <td><button type="button" class="btn btn-info">Güncelle</button></td>
+                <td><a href="/Personel/PersonelSil/@x.personelId" class="btn btn-danger"> Sil </a></td>
+                <td><a href="/Personel/PersonelGuncelle/@x.personelId" class="btn btn-info"> Güncelle </a></td>
             </tr>
         }
 
