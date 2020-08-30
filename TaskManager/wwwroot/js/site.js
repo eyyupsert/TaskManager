@@ -4,4 +4,3 @@
 // Write your JavaScript code.
 
     // Add butonuna tıklanıldığında addItem fonksiyonu çalışacak.
-   

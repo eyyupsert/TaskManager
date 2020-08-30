@@ -1,9 +1,11 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http;
+@{
     ViewData["Title"] = "Home Page";
+    string fullname = Context.Session.GetString("fullname");
 }
 
 <div class="text-center">
-    <h1 class="display-4">Hoşgeldiniz</h1>
+    <h1 class="display-4">@fullname Hoşgeldiniz</h1>
     <img src="~/photo/pm.jpg" style="max-width: 70%;height:auto;" />
   
 </div>

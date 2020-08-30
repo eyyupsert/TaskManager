@@ -28,7 +28,10 @@ namespace TaskManager
         {
             services.AddControllersWithViews();
             services.AddMvc();
-            services.AddSwaggerDocument(); 
+            services.AddRazorPages();
+            services.AddSwaggerDocument();
+            services.AddSession();
+            services.AddDistributedMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,14 +52,15 @@ namespace TaskManager
             app.UseOpenApi();
             app.UseSwaggerUi3();
             app.UseRouting();
+            app.UseSession(); 
 
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Account}/{action=HesapGiris}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

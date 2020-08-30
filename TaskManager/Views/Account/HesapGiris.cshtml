@@ -1,0 +1,31 @@
+﻿@model TaskManager.Models.Personel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link href="~/css/hesap.css" rel="stylesheet" />
+</head>
+<body>
+    <form  asp-controller="Account" asp-action="HesapGiris" method="post">
+        <h2>Task Manager'e Hoşgeldiniz</h2>
+        <div class="outer-box">
+            <div class="login-box">
+                <h4 class="login-text">Giriş</h4>
+                <center>
+                    <input asp-for="mailAdres" placeholder="Kullanıcı Adı" name="email">
+                    <input asp-for="personelAd" placeholder="Şifre" name="personelAdi">
+
+                    <button id="btn-login" type="submit">Giriş Yap</button>
+                    <button id="btn-login">Kayıt Ol!</button>
+                    <button id="btn-forgot">Şifremi unuttum!</button>
+                </center>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
