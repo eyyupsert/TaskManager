@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using TaskManager.Filter;
 using TaskManager.Models;
 
 namespace TaskManager.Controllers
 {
+    [UserFilter]
     public class DepartmanController : Controller
     {
         

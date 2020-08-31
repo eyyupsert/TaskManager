@@ -179,3 +179,4 @@ C:\Users\eyyup\Documents\GitHub\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\
 C:\Users\eyyup\Documents\GitHub\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\eyyup\Documents\GitHub\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\eyyup\Documents\GitHub\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\Razor\Views\Account\HesapGiris.cshtml.g.cs
+C:\Users\eyyup\Documents\GitHub\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\Razor\Views\Gorev\GorevAta.cshtml.g.cs

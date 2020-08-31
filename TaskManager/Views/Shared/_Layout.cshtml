@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    int? perID = Context.Session.GetInt32("id");
+    string fullname = Context.Session.GetString("fullname");
+
+  }
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -29,12 +35,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Departman" asp-action="departmanListele">Departman Listele</a>
-                        </li>
+                         </li> 
+                        
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Gorev" asp-action="GorevGoruntule">Görevlerim</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="PopUpDeneme" asp-action="PopUp">PopUp</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -42,7 +46,7 @@
 
                     </ul>
                 </div>
-
+                <h6> @perID  @fullname</h6>
             </div>
             <a class="btn btn-danger" asp-area="" asp-controller="Account" asp-action="Logout">Log Out</a>
         </nav>

@@ -4,13 +4,16 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using TaskManager.Filter;
 using TaskManager.Models;
 
 namespace TaskManager.Controllers
 {
+    [UserFilter]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -19,12 +22,18 @@ namespace TaskManager.Controllers
         {
             _logger = logger;
         }
-        
+        Context a = new Context();
+
         public IActionResult Index()
         {
-            return View();
+            if(HttpContext.Session.GetInt32("id").HasValue)
+            {
+                return View();
+            }
+
+            return Redirect("/Account/HesapGiris");
         }
-        Context a = new Context();
+        
         
         public IActionResult GorevGuncelle()
         {

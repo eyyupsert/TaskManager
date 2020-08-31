@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using TaskManager.Filter;
 using TaskManager.Models;
 
 namespace TaskManager.Controllers
 {
+    [UserFilter]
     public class PersonelController : Controller
     {
         Context c = new Context();
@@ -49,7 +51,7 @@ namespace TaskManager.Controllers
             departmanList = (from x in c.departmanlars select x).ToList();
             departmanList.Insert(0, new Departman { Id = 0, departmanAd = "-- Departman Seç --" });
             ViewBag.departmanDeger = departmanList;
-            var GPersonel = c.personellers.Find(id );
+            var GPersonel = c.personellers.Find(id);
             return View("PersonelGuncelle", GPersonel);
         }
         [HttpPost]
