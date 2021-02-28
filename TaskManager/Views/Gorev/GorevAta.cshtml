@@ -7,6 +7,7 @@
 <h1>GorevAta</h1>
 
 <form asp-action="GorevAta">
+
     <select asp-for="per.personelId" asp-items="@(new SelectList(@ViewBag.personelDeger, "personelId","personelAd"))"></select>
     <div class="form-group">Görev Adı: <input asp-for="gorevAd"> </div>
     <div class="form-group"> Görev Detay: <input asp-for="gorevDetay" type="text"> </div>

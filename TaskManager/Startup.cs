@@ -59,7 +59,7 @@ namespace TaskManager
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=HesapGiris}/{id?}");
+                    pattern: "{controller=Account}/{action=HesapGiris}/{id?}/{gunceldeger?}");
                 endpoints.MapRazorPages();
             });
         }

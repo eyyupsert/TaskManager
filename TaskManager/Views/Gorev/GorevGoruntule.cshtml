@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<a href="/Gorev/GorevAta" class="btn btn-info" style="margin:10px">Görev Ata</a>
+<form asp-controller="Gorev" asp-action="GorevGoruntule" method="post">
+    <a href="/Gorev/GorevAta" class="btn btn-info" style="margin:10px">Görev Ata</a>
+
     <div>
         <table class="table">
             <thead>
@@ -21,22 +23,22 @@
             </thead>
             @foreach (var x in ViewData["gorevListesi"] as List<Gorev>)
             {
-                var durum = x.gorevDurum;
+
                 <tr>
                     <td> @x.gorevId </td>
                     <td> @x.per.personelAd @x.per.personelSoyad </td>
                     <td> @x.gorevAd </td>
 
 
-                    @if (durum == false)
+                    @if (x.gorevDurum == false)
                     {
                         <td>Yapılmadı</td>
                     }
-                    @if (durum == true)
+                    @if (x.gorevDurum == true)
                     {
                         <td>Yapıldı</td>
                     }
-                    <td> 
+                    <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                             Detay Görüntüle
                         </button>
@@ -51,7 +53,6 @@
                                     </div>
                                     <div class="modal-body">
                                         @x.gorevDetay
-                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -63,12 +64,13 @@
 
                     <td> @x.gorevSonTeslimTarihi.ToString("dd/MM/yyyy")</td>
                     <td>
-                        <a href="/Gorev/GorevNegative/@x.gorevId" type="submit" class="btn btn-danger" >x</a>
-                        <a href="/Gorev/GorevPlus/@x.gorevId" type="submit" class="btn btn-info">+</a>
-                       
+                        <a href="/Gorev/GorevGuncelle/@x.gorevId/false" class="btn btn-danger">x</a>
+                        <a href="/Gorev/GorevGuncelle/@x.gorevId/true" class="btn btn-info">+</a>
+
                     </td>
                 </tr>
             }
 
         </table>
     </div>
+</form>

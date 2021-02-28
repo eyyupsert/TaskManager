@@ -16,28 +16,32 @@ namespace TaskManager.Controllers
     {
         Context c = new Context();
         
-
+        [HttpGet]
         public IActionResult GorevGoruntule()
         {
             var gorevDeger = c.gorevs.Include(g => g.per).ToList();
             ViewData["gorevListesi"] = gorevDeger;
             return View();
         }
-        public IActionResult GorevPlus(Gorev grv)
+       
+        public IActionResult GorevGuncelle(int id, bool gunceldeger)
         {
-            var gorevler= c.gorevs.Find(grv.gorevId);
-            gorevler.gorevDurum = true;
-            c.SaveChanges();
-            return RedirectToAction("GorevGoruntule");
+            var gorevler = c.gorevs.Find(id);
+            if(gunceldeger == false)
+            {
+                gorevler.gorevDurum = false;
+                c.SaveChanges();
+                return Redirect("/Gorev/GorevGoruntule");
+            }
+            if(gunceldeger == true)
+            {
+                gorevler.gorevDurum = true;
+                c.SaveChanges();
+                return Redirect("/Gorev/GorevGoruntule");
+            }
+            return Redirect("/Gorev/GorevGoruntule");
         }
-     
-        public IActionResult GorevNegative(Gorev grv)
-        {
-            var gorevler = c.gorevs.Find(grv.gorevId);
-            gorevler.gorevDurum = false;
-            c.SaveChanges();
-            return RedirectToAction("GorevGoruntule");
-        }
+        
 
         [HttpGet]
          public IActionResult GorevAta()
